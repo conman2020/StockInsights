@@ -1,0 +1,34 @@
+<h1>Latest News for Stock Symbol: {{ company }}</h1>
+    <h2> <a href="/">Home</a></h2>
+ 
+    {% for feed in overviewnews_data %}
+
+    <div class="container" id="container">
+      <h3>{{ feed.Name }}</h3>
+      <h4>{{ feed['Description']}}</h4>
+      <h4>{{ feed.Description}}</h4>
+      <p><a href="{{ feed['Industry'] }}">Read more...</a></p>
+    </div>
+
+    {% endfor %}
+
+    <h2>Articles</h2>
+    {% for feed in news_data%}
+    
+    <div class="container" id="container">
+      <h3>{{ feed.title }}</h3>
+      <h4>{{ feed.summary }}</h4>
+      <p><a href="{{ feed.url }}">Read more...</a></p>
+    </div>
+    {% endfor %}
+
+
+
+    <h4> Historical Data</h4>
+    {% block content %}
+
+
+<table >
+    {{ data|safe}}
+</table>
+{% endblock %}

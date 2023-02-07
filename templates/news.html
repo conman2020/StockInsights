@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="/static/style.css">
+
+
+    <h1>Latest News for Stock Symbol: {{ symbol }}</h1>
+    <h2> <a href="/">Home</a></h2>
+ 
+    {% for feed in news_data%}
+    <div class="container" id="container">
+      <h3>{{ feed.title }}</h3>
+      <h4>{{ feed.summary }}</h4>
+      <p><a href="{{ feed.url }}">Read more...</a></p>
+    </div>
+    {% endfor %}
+
+
