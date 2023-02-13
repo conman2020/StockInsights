@@ -10,7 +10,7 @@
   <script src="https://unpkg.com/jquery"></script>
   <script src="https://unpkg.com/popper"></script>
   <script src="https://unpkg.com/bootstrap"></script>
-  <link rel="stylesheet" href="/static/style.css">
+
   <link rel="stylesheet"
         href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
   <link rel="stylesheet" href="/static/stylesheets/style.css">
@@ -44,33 +44,43 @@
 
 
     </ul>
+  </nav>
   </div>
-</nav>
-<div class="container">
+</div>
+<!-- style="display:flex" -->
+<div class="initialspace"  >
+  <div class="box">
     <h3> Get Stock Values  </h3>
     <form action='/geocode'>
         <input type="text" name ='symbol' placeholder="Enter Stock Ticker">
         <!-- <input type="text" name ='ticker' placeholder="Enter Address"> -->
         <button>Search</button>
-    </form>
-    <h3> Get New Relating to Stocks </h3>
+    </form></div>
+    <div class="box">
+    <h3> New Relating to Stock </h3>
     <form action='/news'>
       <input type="text" name ='symbol' placeholder="Enter Stock Ticker">
       <!-- <input type="text" name ='ticker' placeholder="Enter Address"> -->
       <button>Search</button>
   </form>
+</div>
+  <div class="box">
   <h3> Company Overview </h3>
+ 
   <form action='/companyoverview'>
     <input type="text" name ='symbol' placeholder="Enter Stock Ticker">
     <!-- <input type="text" name ='ticker' placeholder="Enter Address"> -->
     <button>Search</button>
 </form>
-<h3> Get all Details </h3>
+</div>
+<div class="box">
+<h3> All Details on Stock </h3>
 <form action='/alldetails'>
   <input type="text" name ='symbol' placeholder="Enter Stock Ticker">
   <!-- <input type="text" name ='ticker' placeholder="Enter Address"> -->
   <button>Search</button>
 </form>
+</div>
 
 
 

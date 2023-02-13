@@ -45,10 +45,22 @@ def sendtostock():
 
     symbol=request.args['symbol']
     df = get_points(symbol)
-    print(df)
+    print(df.dtypes)
+    df['1. open'] = pd.to_numeric(df['1. open'], errors='coerce')
+    df['2. high'] = pd.to_numeric(df['2. high'], errors='coerce')
+    df['3. low'] = pd.to_numeric(df['3. low'], errors='coerce')
+    df['4. close'] = pd.to_numeric(df['4. close'], errors='coerce')
+    df['5. adjusted close'] = pd.to_numeric(df['5. adjusted close'], errors='coerce')
+    df['6. volume'] = pd.to_numeric(df['6. volume'], errors='coerce')
+    df['7. dividend amount'] = pd.to_numeric(df['7. dividend amount'], errors='coerce')
+    df['8. split coefficient'] = pd.to_numeric(df['8. split coefficient'], errors='coerce')
+
+    df.plot()
+    plt.savefig('static/img/plot.png')
+    return render_template('geocode.html', plot_path='static/img/plot.png')
     # import pdb 
     # pdb.set_trace()
-    return render_template ( 'geocode.html', data=df.to_html(classes='table table-striped')) 
+    # return render_template ( 'geocode.html', data=df.to_html(classes='table table-striped')) 
 
 def get_symbols(symbol):
     res = requests.get(f'{newsurl}', params={  'symbol': symbol,'apikey':{apikey}})
